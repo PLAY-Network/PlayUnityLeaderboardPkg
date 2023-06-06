@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RGNLeaderboard</name>
+    </assembly>
+    <members>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardModule">
+            <summary>
+            This module is responsible for player scores and ranks them according to their totals.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboard(System.String)">
+            <summary>
+            Asynchronous method that retrieves leaderboard data.
+            Resulting Data contains leaderboard description fields like id, name, type, etc.
+            </summary>
+            <param name="leaderboardId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIds">
+            <summary>
+            Method to retrieve leaderboard ids defined for current project
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScore(System.String,System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="leaderboardId"></param>
+            <param name="score"></param>
+            <param name="extraData"></param>
+            <returns></returns>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.id">
+            <summary>
+            Unique id of the leaderboard
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.name">
+            <summary>
+            Leaderboard name
+            Is used also to store localization key for the name
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.description">
+            <summary>
+            Leaderboard description
+            Is used also to store localization key for the description
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.invertSortOrder">
+            <summary>
+            Sorting direction:
+            false - places are sorted in descending order;
+            true - places are sorted in ascending order.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.decimalOffset">
+            <summary>
+            The size of the decimal part
+            e.g., with decimalOffset: 2, the number 1234 will be displayed as 12.34.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.type">
+            <summary>
+            Specifies what is leaderboard type
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.autoResettable">
+            <summary>
+            Should the leaderboard automatically reset
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.resetEveryTimeAtCron">
+            <summary>
+            Cron expression to specify reset period 
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.rewardsAtReset">
+            <summary>
+            Rewards which will be earned at reset period
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.createdAt">
+            <summary>
+            Date and time when the leaderboard was created
+            This field is automatically populated by the backend
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.updatedAt">
+            <summary>
+            Date and time when the leaderboard was last time updated
+            This field is automatically populated by the backend
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.createdBy">
+            <summary>
+            User Id who created the leaderboard
+            This field is automatically populated by the backend
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.updatedBy">
+            <summary>
+            User Id who last time updated the leaderboard
+            This field is automatically populated by the backend
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.placeFrom">
+            <summary>
+            The place from users will be earned
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.placeTo">
+            <summary>
+            The place to users will be earned
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.achievementId">
+            <summary>
+            Specifies reward, achievement contains virtual items reward, currency reward, etc
+            </summary>
+        </member>
+    </members>
+</doc>
