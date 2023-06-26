@@ -9,7 +9,25 @@
             This module is responsible for player scores and ranks them according to their totals.
             </summary>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboard(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetRGNCore(RGN.IRGNRolesCore)">
+            <summary>
+            Sets the Ready Games Network (RGN) core reference.
+            </summary>
+            <param name="rgnCore">The RGN core to be set.</param>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Init">
+            <summary>
+            Initializes the LeaderboardModule.
+            This method is currently empty and can be filled with initial setup logic if needed in the future.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Dispose">
+            <summary>
+            Releases all resources used by the StoreModule.
+            This method is currently empty and can be filled with cleanup logic if needed in the future.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardAsync(System.String)">
             <summary>
             Asynchronous method that retrieves leaderboard data.
             Resulting Data contains leaderboard description fields like id, name, type, etc.
@@ -17,20 +35,37 @@
             <param name="leaderboardId"></param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIds">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIdsAsync">
             <summary>
             Method to retrieve leaderboard ids defined for current project
             </summary>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScore(System.String,System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScoreAsync(System.String,System.Int32,System.String)">
             <summary>
-            
+            Asynchronously sets the player's score on the specified leaderboard.
             </summary>
-            <param name="leaderboardId"></param>
-            <param name="score"></param>
-            <param name="extraData"></param>
-            <returns></returns>
+            <param name="leaderboardId">The ID of the leaderboard where the score will be set.</param>
+            <param name="score">The score to be set on the leaderboard.</param>
+            <param name="extraData">(Optional) Extra data associated with the score. Defaults to an empty string if not provided.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the player's rank after setting the score.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetUserEntryAsync(System.String)">
+            <summary>
+            Asynchronously retrieves the player's entry on the specified leaderboard.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard from which the entry will be retrieved.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the player's entry data on the leaderboard.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetEntriesAsync(System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Asynchronously retrieves a specified number of top entries and entries around the user from the specified leaderboard.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard from which the entries will be retrieved.</param>
+            <param name="quantityTop">The number of top entries to retrieve from the leaderboard.</param>
+            <param name="includeUser">Whether to include the user's entry in the retrieved entries.</param>
+            <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.id">
             <summary>
