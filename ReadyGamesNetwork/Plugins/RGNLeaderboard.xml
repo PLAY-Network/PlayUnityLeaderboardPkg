@@ -6,7 +6,7 @@
     <members>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardModule">
             <summary>
-            This module is responsible for player scores and ranks them according to their totals.
+            This module is responsible for player scores and ranks players according to their totals.
             </summary>
         </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetRGNCore(RGN.IRGNRolesCore)">
@@ -48,7 +48,7 @@
             <param name="leaderboardId">The ID of the leaderboard where the score will be set.</param>
             <param name="score">The score to be set on the leaderboard.</param>
             <param name="extraData">(Optional) Extra data associated with the score. Defaults to an empty string if not provided.</param>
-            <returns>A task that represents the asynchronous operation. The task result contains the player's rank after setting the score.</returns>
+            <returns>A task that represents the asynchronous operation. The task result contains the player's place after setting the score.</returns>
         </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetUserEntryAsync(System.String)">
             <summary>
@@ -66,6 +66,11 @@
             <param name="includeUser">Whether to include the user's entry in the retrieved entries.</param>
             <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardData">
+            <summary>
+            A class that represents a leaderboard on Ready Games Network.
+            </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.id">
             <summary>
@@ -93,13 +98,17 @@
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.decimalOffset">
             <summary>
+            This parameter determines how many digits of the score integer are displayed
+            after the decimal point.
             The size of the decimal part
             e.g., with decimalOffset: 2, the number 1234 will be displayed as 12.34.
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.type">
             <summary>
-            Specifies what is leaderboard type
+            The leaderboard type that determines the results unit.Possible values:
+            numeric — Number.
+            time — Time in milliseconds.
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.autoResettable">
@@ -120,12 +129,14 @@
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.createdAt">
             <summary>
             Date and time when the leaderboard was created
+            in milliseconds since midnight, January 1, 1970 UTC.
             This field is automatically populated by the backend
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.updatedAt">
             <summary>
             Date and time when the leaderboard was last time updated
+            in milliseconds since midnight, January 1, 1970 UTC.
             This field is automatically populated by the backend
             </summary>
         </member>
@@ -139,6 +150,48 @@
             <summary>
             User Id who last time updated the leaderboard
             This field is automatically populated by the backend
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
+            <summary>
+            A class that represents an entry in the leaderboard.
+            This class serves as a Data Transfer Object (DTO) that contains details about a user's entry in the leaderboard.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.userId">
+            <summary>
+            Gets the unique identifier of the user.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.score">
+            <summary>
+            Gets the score of the user.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.formattedScore">
+            <summary>
+            Gets the score of the user formatted as a string.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.place">
+            <summary>
+            Gets or sets the rank or place of the user on the leaderboard.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.extraData">
+            <summary>
+            Gets or sets the extra data associated with the user's score entry.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardEntry.ToString">
+            <summary>
+            Creates a string representation of the LeaderboardEntry.
+            </summary>
+            <returns>A string that represents the current LeaderboardEntry.</returns>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardReward">
+            <summary>
+            A class that represents a leaderboard reward on Ready Games Network.
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.placeFrom">
