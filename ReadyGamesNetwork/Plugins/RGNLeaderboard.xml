@@ -9,6 +9,51 @@
             This module is responsible for player scores and ranks players according to their totals.
             </summary>
         </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardModule.Admin">
+            <summary>
+            Handles critical operations for Leaderboard data
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.SetRGNCore(RGN.IRGNRolesCore)">
+            <summary>
+            Sets the Ready Games Network (RGN) core reference.
+            </summary>
+            <param name="rgnCore">The RGN core to be set.</param>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.Init">
+            <summary>
+            Initializes the LeaderboardModule.
+            This method is currently empty and can be filled with initial setup logic if needed in the future.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.Dispose">
+            <summary>
+            Releases all resources used by the StoreModule.
+            This method is currently empty and can be filled with cleanup logic if needed in the future.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.AddLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData)">
+            <summary>
+            Asynchronously creates a new leaderboard
+            Resulting string contains leaderboard id of the new created leaderboard
+            </summary>
+            <param name="leaderboardData">Leaderboard data to set up</param>
+            <returns>Leaderboard Id</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.UpdateLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData)">
+            <summary>
+            Asynchronously updates existing leaderboard
+            Resulting string contains leaderboard id of the updated leaderboard
+            </summary>
+            <param name="leaderboardData">Leaderboard data with the new settings</param>
+            <returns>Leaderboard Id</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.DeleteLeaderboardAsync(System.String)">
+            <summary>
+            Asynchronously deletes existing leaderboard
+            </summary>
+            <param name="leaderboardId">Leaderboard id to remove</param>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetRGNCore(RGN.IRGNRolesCore)">
             <summary>
             Sets the Ready Games Network (RGN) core reference.
@@ -55,6 +100,15 @@
             </summary>
             <param name="leaderboardId">The ID of the leaderboard where the score will be set.</param>
             <param name="score">The score to be set on the leaderboard.</param>
+            <param name="extraData">(Optional) Extra data associated with the score. Defaults to an empty string if not provided.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the player's place after setting the score.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.AddScoreAsync(System.String,System.Int32,System.String)">
+            <summary>
+            Asynchronously adds the player's score on the specified leaderboard.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard where the score will be added.</param>
+            <param name="score">The score to be added on the leaderboard.</param>
             <param name="extraData">(Optional) Extra data associated with the score. Defaults to an empty string if not provided.</param>
             <returns>A task that represents the asynchronous operation. The task result contains the player's place after setting the score.</returns>
         </member>
@@ -122,6 +176,7 @@
             The leaderboard type that determines the results unit.Possible values:
             numeric — Number.
             time — Time in milliseconds.
+            Default value is numeric
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.autoResettable">
