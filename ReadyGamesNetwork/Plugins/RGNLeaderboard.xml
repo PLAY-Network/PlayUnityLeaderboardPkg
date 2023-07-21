@@ -88,6 +88,14 @@
             <param name="requestName"></param>
             <returns></returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNamesAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            Asynchronous method that retrieves leaderboards data.
+            Resulting Data contains leaderboard description fields like id, name, type, etc.
+            </summary>
+            <param name="requestNames"></param>
+            <returns></returns>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIdsAsync">
             <summary>
             Method to retrieve leaderboard ids defined for current project
