@@ -164,6 +164,11 @@
             Is used also to store localization key for the description
             </summary>
         </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.setBy">
+            <summary>
+            Define who can set/add score to the leaderboard
+            </summary>
+        </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.invertSortOrder">
             <summary>
             Sorting direction:
