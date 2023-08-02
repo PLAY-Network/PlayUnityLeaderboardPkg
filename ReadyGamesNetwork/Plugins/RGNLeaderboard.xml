@@ -252,6 +252,16 @@
             Gets the unique identifier of the user.
             </summary>
         </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.displayName">
+            <summary>
+            Gets the displayed name of the user.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.profilePictureUrl">
+            <summary>
+            Gets the url of user profile picture.
+            </summary>
+        </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.score">
             <summary>
             Gets the score of the user.
