@@ -257,7 +257,7 @@
             Gets the displayed name of the user.
             </summary>
         </member>
-        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.profilePictureUrl">
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntry.profilePicture">
             <summary>
             Gets the url of user profile picture.
             </summary>
