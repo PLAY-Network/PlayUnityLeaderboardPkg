@@ -14,24 +14,6 @@
             Handles critical operations for Leaderboard data
             </summary>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.SetRGNCore(RGN.IRGNRolesCore)">
-            <summary>
-            Sets the Ready Games Network (RGN) core reference.
-            </summary>
-            <param name="rgnCore">The RGN core to be set.</param>
-        </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.Init">
-            <summary>
-            Initializes the LeaderboardModule.Admin.
-            This method is currently empty and can be filled with initial setup logic if needed in the future.
-            </summary>
-        </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.Dispose">
-            <summary>
-            Releases all resources used by the LeaderboardModule.Admin.
-            This method is currently empty and can be filled with cleanup logic if needed in the future.
-            </summary>
-        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.AddLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData)">
             <summary>
             Asynchronously creates a new leaderboard
@@ -53,24 +35,6 @@
             Asynchronously deletes existing leaderboard
             </summary>
             <param name="leaderboardId">Leaderboard id to remove</param>
-        </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetRGNCore(RGN.IRGNRolesCore)">
-            <summary>
-            Sets the Ready Games Network (RGN) core reference.
-            </summary>
-            <param name="rgnCore">The RGN core to be set.</param>
-        </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Init">
-            <summary>
-            Initializes the LeaderboardModule.
-            This method is currently empty and can be filled with initial setup logic if needed in the future.
-            </summary>
-        </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Dispose">
-            <summary>
-            Releases all resources used by the LeaderboardModule.
-            This method is currently empty and can be filled with cleanup logic if needed in the future.
-            </summary>
         </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByIdAsync(System.String)">
             <summary>
