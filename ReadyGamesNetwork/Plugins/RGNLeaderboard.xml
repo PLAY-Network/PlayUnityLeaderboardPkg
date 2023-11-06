@@ -99,6 +99,13 @@
             retrieval process. The default is false.</param>
             <returns></returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsLeaderboardAvailableAsync(System.String)">
+            <summary>
+            Method to retrieve available status of leaderboard
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
+            <returns></returns>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScoreAsync(System.String,System.Int32,System.String)">
             <summary>
             Asynchronously sets the player's score on the specified leaderboard.
