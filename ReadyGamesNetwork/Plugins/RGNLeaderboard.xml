@@ -205,6 +205,11 @@
             This field is automatically populated by the backend
             </summary>
         </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.time">
+            <summary>
+            The time when the leaderboard is available
+            </summary>
+        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
             <summary>
             A class that represents an entry in the leaderboard.
