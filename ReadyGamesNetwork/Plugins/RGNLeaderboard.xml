@@ -60,7 +60,7 @@
             <param name="requestNames"></param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String)">
             <summary>
             Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
             the provided application identifiers.
@@ -75,7 +75,7 @@
             <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboard that match the specified application identifiers,
             limit and other optional parameters.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetForCurrentAppAsync(System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardForCurrentAppAsync(System.Int32,System.String)">
             <summary>
             Asynchronously retrieves a list of leaderboards for the current application from the Ready Games Network (RGN).
             </summary>
@@ -136,6 +136,11 @@
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.id">
             <summary>
             Unique id of the leaderboard
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.appIds">
+            <summary>
+            List of application ids where this leaderboard is used
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.requestName">
