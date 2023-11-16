@@ -60,10 +60,50 @@
             <param name="requestNames"></param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIdsAsync">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String,System.Boolean)">
+            <summary>
+            Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
+            the provided application identifiers.
+            </summary>
+            <param name="appIds">A list of application identifiers used to filter the leaderboards.</param>
+            <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
+            <param name="startAfter">An optional parameter representing an leaderboard id after which to
+            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
+            retrieval process. The default is false.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the provided appIds list is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the provided limit value is zero.</exception>
+            <returns>A Task representing the asynchronous operation. The Result property of the Task returns a list of
+            <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboard that match the specified application identifiers,
+            limit and other optional parameters.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardForCurrentAppAsync(System.Int32,System.String,System.Boolean)">
+            <summary>
+            Asynchronously retrieves a list of leaderboards for the current application from the Ready Games Network (RGN).
+            </summary>
+            <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
+            <param name="startAfter">An optional parameter representing an leaderboard id after which to
+            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
+            retrieval process. The default is false.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the provided limit value is zero.</exception>
+            <returns>A Task representing the asynchronous operation. The Result property of the Task returns a list
+            of <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboards that match the current application identifier,
+            limit and other optional parameters.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIdsAsync(System.Boolean)">
             <summary>
             Method to retrieve leaderboard ids defined for current project
             </summary>
+            <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
+            retrieval process. The default is false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsLeaderboardAvailableAsync(System.String)">
+            <summary>
+            Method to retrieve available status of leaderboard
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
             <returns></returns>
         </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScoreAsync(System.String,System.Int32,System.String)">
@@ -101,6 +141,25 @@
             <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
+        <member name="T:RGN.Modules.Leaderboard.JoinRequirement">
+            <summary>
+            A class that represents a leaderboard join requirement on Ready Games Network.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.JoinRequirement.type">
+            <summary>
+            Specifies the type of the join requirement
+            Right now 3 types are implemented: "gamepass", "item_by_id" and "item_by_tag"
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.JoinRequirement.id">
+            <summary>
+            The id of the entity to check if it exists in user data
+            In case the type is "gamepass" the id is the gamepass id to check if the user has it.
+            In case the type is "item_by_id", then it is the id of the virtual item the user needs to buy
+            In case the type is "item_by_tag", then it is the tag of the virtual item the user needs to buy
+            </summary>
+        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardData">
             <summary>
             A class that represents a leaderboard on Ready Games Network.
@@ -109,6 +168,11 @@
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.id">
             <summary>
             Unique id of the leaderboard
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.appIds">
+            <summary>
+            List of application ids where this leaderboard is used
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.requestName">
@@ -203,6 +267,18 @@
             <summary>
             User Id who last time updated the leaderboard
             This field is automatically populated by the backend
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.time">
+            <summary>
+            The time when the leaderboard is available
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.requiredToJoin">
+            <summary>
+            Specifies if the user need to have a gamepass or virtual item to join the leaderboard
+            Join the leaderboard means to submit scores to the leaderboard
+            In case the user does not have the required item, the score change is ignored
             </summary>
         </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
