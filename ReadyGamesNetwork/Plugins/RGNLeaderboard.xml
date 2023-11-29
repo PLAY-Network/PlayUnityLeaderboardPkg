@@ -106,6 +106,13 @@
             <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
             <returns></returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInGracePeriodAsync(System.String)">
+            <summary>
+            Method to retrieve available status of leaderboard
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
+            <returns></returns>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScoreAsync(System.String,System.Int32,System.String)">
             <summary>
             Asynchronously sets the player's score on the specified leaderboard.
@@ -220,20 +227,24 @@
             Default value is numeric
             </summary>
         </member>
-        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.resetEveryTimeAtCron">
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.ResetEveryTimeAtCron">
             <summary>
             If it is provided, then it specifies reset period for the leaderboard
             How often the leaderboard will reset specified by the cron string.
+            <code>
+            <![CDATA[
             *    *    *    *    *    *
             ┬    ┬    ┬    ┬    ┬    ┬
-            │    │    │    │    │    |
+            │    │    │    │    │    │
             │    │    │    │    │    └ day of week(0 - 7, 1L - 7L) (0 or 7 is Sun)
             │    │    │    │    └───── month(1 - 12)
             │    │    │    └────────── day of month(1 - 31, L)
             │    │    └─────────────── hour(0 - 23)
             │    └──────────────────── minute(0 - 59)
             └───────────────────────── second(0 - 59, optional)
-            You can use the https://crontab.guru/ to create cron settings
+            ]]>
+            </code>
+            You can use the <a href="https://crontab.guru/">https://crontab.guru/</a> to create cron settings
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.rewardsAtReset">
@@ -279,6 +290,13 @@
             Specifies if the user need to have a gamepass or virtual item to join the leaderboard
             Join the leaderboard means to submit scores to the leaderboard
             In case the user does not have the required item, the score change is ignored
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.gracePeriod">
+            <summary>
+            The grace period in milliseconds for the leaderboard.
+            This is the time after the leaderboard end time when the leaderboard is
+            still available for reviwing the results.
             </summary>
         </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
@@ -346,6 +364,31 @@
         <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.achievementId">
             <summary>
             Specifies reward, achievement contains virtual items reward, currency reward, etc
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.IsInGracePeriodResponseData">
+            <summary>
+            Information about the leaderboard's grace period.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInGracePeriodResponseData.isInGracePeriod">
+            <summary>
+            Indicates whether the leaderboard is in grace period or not.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInGracePeriodResponseData.leaderboardEndTime">
+            <summary>
+            The end time of the leaderboard in milliseconds since midnight, January 1, 1970 UTC.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInGracePeriodResponseData.gracePeriodEndTime">
+            <summary>
+            The end time of the grace period in milliseconds since midnight, January 1, 1970 UTC.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInGracePeriodResponseData.currentTime">
+            <summary>
+            The current server time in milliseconds since midnight, January 1, 1970 UTC.
             </summary>
         </member>
     </members>
