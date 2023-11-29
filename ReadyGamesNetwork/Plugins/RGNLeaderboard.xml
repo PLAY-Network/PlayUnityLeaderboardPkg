@@ -227,9 +227,9 @@
             Default value is numeric
             </summary>
         </member>
-        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.ResetEveryTimeAtCron">
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.resetEveryTimeAtCron">
             <summary>
-            If it is provided, then it specifies reset period for the leaderboard
+            If it is provided, then it specifies reset period for the leaderboard.
             How often the leaderboard will reset specified by the cron string.
             <code>
             <![CDATA[
