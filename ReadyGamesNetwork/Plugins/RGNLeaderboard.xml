@@ -299,13 +299,6 @@
             In case the user does not have the required item, the score change is ignored
             </summary>
         </member>
-        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.gracePeriod">
-            <summary>
-            The grace period in milliseconds for the leaderboard.
-            This is the time after the leaderboard end time when the leaderboard is
-            still available for reviwing the results.
-            </summary>
-        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
             <summary>
             A class that represents an entry in the leaderboard.
