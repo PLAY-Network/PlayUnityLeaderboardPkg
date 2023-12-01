@@ -106,6 +106,13 @@
             <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
             <returns></returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInPromoPeriodAsync(System.String)">
+            <summary>
+            Method to retrieve available status of leaderboard
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
+            <returns></returns>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInGracePeriodAsync(System.String)">
             <summary>
             Method to retrieve available status of leaderboard
@@ -387,6 +394,31 @@
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.IsInGracePeriodResponseData.currentTime">
+            <summary>
+            The current server time in milliseconds since midnight, January 1, 1970 UTC.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.IsInPromoPeriodResponseData">
+            <summary>
+            Information about the leaderboard's promo period.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInPromoPeriodResponseData.isInPromoPeriod">
+            <summary>
+            Indicates whether the leaderboard is in promo period or not.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInPromoPeriodResponseData.leaderboardStartTime">
+            <summary>
+            The start time of the leaderboard in milliseconds since midnight, January 1, 1970 UTC.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInPromoPeriodResponseData.promoPeriodStartTime">
+            <summary>
+            The start time of the promo period in milliseconds since midnight, January 1, 1970 UTC.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsInPromoPeriodResponseData.currentTime">
             <summary>
             The current server time in milliseconds since midnight, January 1, 1970 UTC.
             </summary>
