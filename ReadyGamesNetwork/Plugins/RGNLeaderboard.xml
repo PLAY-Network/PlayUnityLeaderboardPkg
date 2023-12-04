@@ -234,26 +234,6 @@
             Default value is numeric
             </summary>
         </member>
-        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.resetEveryTimeAtCron">
-            <summary>
-            If it is provided, then it specifies reset period for the leaderboard.
-            How often the leaderboard will reset specified by the cron string.
-            <code>
-            <![CDATA[
-            *    *    *    *    *    *
-            ┬    ┬    ┬    ┬    ┬    ┬
-            │    │    │    │    │    │
-            │    │    │    │    │    └ day of week(0 - 7, 1L - 7L) (0 or 7 is Sun)
-            │    │    │    │    └───── month(1 - 12)
-            │    │    │    └────────── day of month(1 - 31, L)
-            │    │    └─────────────── hour(0 - 23)
-            │    └──────────────────── minute(0 - 59)
-            └───────────────────────── second(0 - 59, optional)
-            ]]>
-            </code>
-            You can use the <a href="https://crontab.guru/">https://crontab.guru/</a> to create cron settings
-            </summary>
-        </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.rewardsAtReset">
             <summary>
             Rewards which will be earned at reset period
