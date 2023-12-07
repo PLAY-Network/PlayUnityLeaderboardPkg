@@ -155,25 +155,6 @@
             <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
-        <member name="T:RGN.Modules.Leaderboard.JoinRequirement">
-            <summary>
-            A class that represents a leaderboard join requirement on Ready Games Network.
-            </summary>
-        </member>
-        <member name="F:RGN.Modules.Leaderboard.JoinRequirement.type">
-            <summary>
-            Specifies the type of the join requirement
-            Right now 3 types are implemented: "gamepass", "item_by_id" and "item_by_tag"
-            </summary>
-        </member>
-        <member name="F:RGN.Modules.Leaderboard.JoinRequirement.id">
-            <summary>
-            The id of the entity to check if it exists in user data
-            In case the type is "gamepass" the id is the gamepass id to check if the user has it.
-            In case the type is "item_by_id", then it is the id of the virtual item the user needs to buy
-            In case the type is "item_by_tag", then it is the tag of the virtual item the user needs to buy
-            </summary>
-        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardData">
             <summary>
             A class that represents a leaderboard on Ready Games Network.
@@ -277,6 +258,8 @@
             Specifies if the user need to have a gamepass or virtual item to join the leaderboard
             Join the leaderboard means to submit scores to the leaderboard
             In case the user does not have the required item, the score change is ignored
+            If you specify more than one requirement, then at least one of them
+            must be met.
             </summary>
         </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
