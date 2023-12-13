@@ -258,8 +258,18 @@
             Specifies if the user need to have a gamepass or virtual item to join the leaderboard
             Join the leaderboard means to submit scores to the leaderboard
             In case the user does not have the required item, the score change is ignored
-            If you specify more than one requirement, then at least one of them
-            must be met.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.autoClaim">
+            <summary>
+            Indicates whether the leaderboard rewards are automatically claimed by the user. If false, the rewards must
+            be claimed manually.The time.end is required and optionally time.grace to be set if autoClaim is true.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.participationFees">
+            <summary>
+            List of participation fees for the leaderboard.
+            The fees are deducted when the user sets or adds a score to the leaderboard for the first time.
             </summary>
         </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardEntry">
@@ -377,6 +387,21 @@
         <member name="F:RGN.Modules.Leaderboard.IsInPromoPeriodResponseData.currentTime">
             <summary>
             The current server time in milliseconds since midnight, January 1, 1970 UTC.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.IsLeaderboardAvailableResponseData">
+            <summary>
+            Availability information
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsLeaderboardAvailableResponseData.isAvailable">
+            <summary>
+            Indicates whether the leaderboard is available or not.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.IsLeaderboardAvailableResponseData.reason">
+            <summary>
+            The reason why the leaderboard is not available.
             </summary>
         </member>
     </members>
