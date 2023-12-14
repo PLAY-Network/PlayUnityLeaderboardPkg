@@ -189,7 +189,7 @@
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.setBy">
             <summary>
-            Define who can set/add score to the leaderboard
+            Define who can set/add score to the leaderboard. 'server' or 'client'
             </summary>
         </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.invertSortOrder">
