@@ -220,6 +220,17 @@
             Rewards which will be earned at reset period
             </summary>
         </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.rewardsDrawType">
+            <summary>
+            The leaderboard rewards draw type that determines how the leaderboard should draw rewards. Possible values:
+            placeBased — Rewards will be drawn accordingly users places.
+            scoreBased — Rewards will be drawn randomly, but users with higher score will have more chance to win.
+            scoreBasedOnePerUser - Same as the scoreBased, but with limitation for one reward at whole leaderboard per one user
+            scoreBasedOnePerUserAndReward - Same as the scoreBased, but with limitation for one unique reward per one user
+            but different rewards could be added to same user
+            Default value is placeBased
+            </summary>
+        </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.createdAt">
             <summary>
             Date and time when the leaderboard was created
