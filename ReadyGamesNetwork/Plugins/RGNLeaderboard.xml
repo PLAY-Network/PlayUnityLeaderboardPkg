@@ -155,6 +155,13 @@
             <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.ResetLeaderboardAsync(System.String)">
+            <summary>
+            Reset leaderboard. Gives the rewards to the users and resets the leaderboard.
+            Requires project admin access.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard to reset.</param>
+        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardData">
             <summary>
             A class that represents a leaderboard on Ready Games Network.
@@ -348,6 +355,11 @@
         <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.achievementId">
             <summary>
             Specifies reward, achievement contains virtual items reward, currency reward, etc
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReward.quantity">
+            <summary>
+            Specifies how amount times to trigger an achievement
             </summary>
         </member>
         <member name="T:RGN.Modules.Leaderboard.IsInGracePeriodResponseData">
