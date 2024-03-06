@@ -172,6 +172,29 @@
             <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetsAsync(System.String,System.Boolean,System.Int64,System.Int32,System.String)">
+            <summary>
+            Asynchronously retrieves leaderboard resets. Every time the leaderboard resets the results are stored in the history.
+            This method allows to retreive the history of the leaderboard resets.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard from which the entries will be retrieved.</param>
+            <param name="withEntries">Flag to include user entries in the response.</param>
+            <param name="startAfter">The start time in milliseconds since midnight, January 1, 1970 UTC, based on 'resetAt'.</param>
+            <param name="limit">The maximum number of resets to retrieve.</param>
+            <param name="orderDirection">The order direction for the resets. Accepted values 'asc' or 'desc'.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard resets.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetAsync(System.String,System.String,System.Int64,System.Int32,System.String)">
+            <summary>
+            Asynchronously retrieves leaderboard reset by leaderboard and reset IDs. The result includes the user entries.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard from which the reset user entries will be retrieved.</param>
+            <param name="resetId">The unique reset ID of the leaderboard</param>
+            <param name="startAfter">The start after based on 'place'.</param>
+            <param name="limit">The maximum number of user entries to retrieve.</param>
+            <param name="orderDirection">The order direction for the user entries. Accepted values 'asc' or 'desc'.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the retrieved leaderboard reset with user entries.</returns>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.ResetLeaderboardAsync(System.String)">
             <summary>
             Reset leaderboard. Gives the rewards to the users and resets the leaderboard.
@@ -364,6 +387,62 @@
             </summary>
             <returns>A string that represents the current LeaderboardEntry.</returns>
         </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardEntryWithRewards">
+            <summary>
+            A class that represents an entry in the leaderboard.
+            This class serves as a Data Transfer Object (DTO) that contains details about a user's entry in the leaderboard.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntryWithRewards.givenRewards">
+            <summary>
+            List of rewards that the user failed to earn. This field is only present if the user failed to earn rewards.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardEntryWithRewards.failedRewards">
+            <summary>
+            List of rewards that the user earned. This field is only present if the user earned rewards.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardEntryWithRewards.ToString">
+            <summary>
+            Creates a string representation of the LeaderboardEntry.
+            </summary>
+            <returns>A string that represents the current LeaderboardEntry.</returns>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardReset">
+            <summary>
+            A class that represents an reset history entry in the leaderboard.
+            This class serves as a Data Transfer Object (DTO) that contains details about a leaderboard reset data
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReset.id">
+            <summary>
+            Gets the unique identifier of the leaderboard reset id.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReset.resetAt">
+            <summary>
+            Date and time when the leaderboard will be reset in milliseconds since Jan 1, 1970 UTC.Automatically
+            populated by the backend.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:RGN.Modules.Leaderboard.LeaderboardReset.rewardsGivenAt" -->
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReset.totalGivenRewardsCount">
+            <summary>
+            The total count of given rewards.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReset.entries">
+            <summary>
+            List of leaderboard entries with the rewards information.
+            </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardReset.ToString">
+            <summary>
+            Creates a string representation of the LeaderboardReset.
+            </summary>
+            <returns>A string that represents the current LeaderboardReset.</returns>
+        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardReward">
             <summary>
             A class that represents a leaderboard reward on Ready Games Network.
@@ -388,6 +467,12 @@
             <summary>
             Specifies how amount times to trigger an achievement
             </summary>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardReward.ToString">
+            <summary>
+            Creates a string representation of the LeaderboardReward.
+            </summary>
+            <returns>A string that represents the current LeaderboardReward.</returns>
         </member>
         <member name="T:RGN.Modules.Leaderboard.IsInGracePeriodResponseData">
             <summary>
