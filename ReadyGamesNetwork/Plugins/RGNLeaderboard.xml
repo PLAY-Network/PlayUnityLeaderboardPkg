@@ -57,24 +57,27 @@
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNamesAsync(System.Collections.Generic.List{System.String},System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNamesAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronous method that retrieves leaderboards data.
             Resulting Data contains leaderboard description fields like id, name, type, etc.
             </summary>
             <param name="requestNames"></param>
+            /// <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
+            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
+            retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
             the provided application identifiers.
             </summary>
             <param name="appIds">A list of application identifiers used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard id after which to
-            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
@@ -84,15 +87,14 @@
             <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboard that match the specified application identifiers,
             limit and other optional parameters.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByTagsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByTagsAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
             the provided tags.
             </summary>
             <param name="tags">A list of tags used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard id after which to
-            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
@@ -102,13 +104,12 @@
             <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboards that match the specified tags,
             limit and other optional parameters.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardForCurrentAppAsync(System.Int32,System.String,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardForCurrentAppAsync(System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a list of leaderboards for the current application from the Ready Games Network (RGN).
             </summary>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard id after which to
-            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
