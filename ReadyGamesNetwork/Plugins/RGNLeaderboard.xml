@@ -64,7 +64,7 @@
             </summary>
             <param name="requestNames"></param>
             /// <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
@@ -77,7 +77,7 @@
             </summary>
             <param name="appIds">A list of application identifiers used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
@@ -94,7 +94,7 @@
             </summary>
             <param name="tags">A list of tags used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
@@ -111,7 +111,7 @@
             </summary>
             <param name="ids">A list of leaderboard identifiers used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
@@ -126,7 +126,7 @@
             Asynchronously retrieves a list of leaderboards for the current application from the Ready Games Network (RGN).
             </summary>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
