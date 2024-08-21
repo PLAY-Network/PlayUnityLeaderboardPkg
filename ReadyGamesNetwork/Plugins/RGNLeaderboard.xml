@@ -14,155 +14,189 @@
             Handles critical operations for Leaderboard data
             </summary>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.AddLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.AddLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData,System.Threading.CancellationToken)">
             <summary>
             Asynchronously creates a new leaderboard
             Resulting string contains leaderboard id of the new created leaderboard
             </summary>
             <param name="leaderboardData">Leaderboard data to set up</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>Leaderboard Id</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.UpdateLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.UpdateLeaderboardAsync(RGN.Modules.Leaderboard.LeaderboardData,System.Threading.CancellationToken)">
             <summary>
             Asynchronously updates existing leaderboard
             Resulting string contains leaderboard id of the updated leaderboard
             </summary>
             <param name="leaderboardData">Leaderboard data with the new settings</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>Leaderboard Id</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.DeleteLeaderboardAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.Admin.DeleteLeaderboardAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously deletes existing leaderboard
             </summary>
             <param name="leaderboardId">Leaderboard id to remove</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByIdAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByIdAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronous method that retrieves leaderboard data.
             Resulting Data contains leaderboard description fields like id, name, type, etc.
             </summary>
             <param name="id"></param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNameAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNameAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronous method that retrieves leaderboard data.
             Resulting Data contains leaderboard description fields like id, name, type, etc.
             </summary>
             <param name="requestName"></param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNamesAsync(System.Collections.Generic.List{System.String})">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByRequestNamesAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronous method that retrieves leaderboards data.
             Resulting Data contains leaderboard description fields like id, name, type, etc.
             </summary>
             <param name="requestNames"></param>
+            /// <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
+            retrieval process. The default is false.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String,System.Boolean)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByAppIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
             the provided application identifiers.
             </summary>
             <param name="appIds">A list of application identifiers used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard id after which to
-            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <exception cref="T:System.ArgumentException">Thrown when the provided appIds list is null or empty.</exception>
             <exception cref="T:System.ArgumentException">Thrown when the provided limit value is zero.</exception>
             <returns>A Task representing the asynchronous operation. The Result property of the Task returns a list of
             <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboard that match the specified application identifiers,
             limit and other optional parameters.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByTagsAsync(System.Collections.Generic.List{System.String},System.Int32,System.String,System.Boolean)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByTagsAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
             the provided tags.
             </summary>
             <param name="tags">A list of tags used to filter the leaderboards.</param>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard id after which to
-            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <exception cref="T:System.ArgumentException">Thrown when the provided tags list is null or empty.</exception>
             <exception cref="T:System.ArgumentException">Thrown when the provided limit value is zero.</exception>
             <returns>A Task representing the asynchronous operation. The Result property of the Task returns a list of
             <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboards that match the specified tags,
             limit and other optional parameters.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardForCurrentAppAsync(System.Int32,System.String,System.Boolean)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardByIdsAsync(System.Collections.Generic.List{System.String},System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously retrieves a list of leaderboards from the Ready Games Network (RGN) store based on
+            the provided leaderboard identifiers.
+            </summary>
+            <param name="ids">A list of leaderboard identifiers used to filter the leaderboards.</param>
+            <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
+            <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
+            retrieval process. The default is false.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the provided appIds list is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when the provided limit value is zero.</exception>
+            <returns>A Task representing the asynchronous operation. The Result property of the Task returns a list of
+            <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboard that match the specified application identifiers,
+            limit and other optional parameters.</returns>
+        </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardForCurrentAppAsync(System.Int32,System.Int64,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a list of leaderboards for the current application from the Ready Games Network (RGN).
             </summary>
             <param name="limit">An integer indicating the maximum number of leaderboards to retrieve.</param>
-            <param name="startAfter">An optional parameter representing an leaderboard id after which to
-            start retrieving the leaderboards. The default is an empty string.</param>
+            <param name="startAfter">An optional parameter representing a leaderboard 'updatedAt' field after which start the retrieval</param>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <exception cref="T:System.ArgumentException">Thrown when the provided limit value is zero.</exception>
             <returns>A Task representing the asynchronous operation. The Result property of the Task returns a list
             of <see cref="T:RGN.Modules.Leaderboard.LeaderboardData"/> objects representing the leaderboards that match the current application identifier,
             limit and other optional parameters.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIdsAsync(System.Boolean)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetLeaderboardIdsAsync(System.Boolean,System.Threading.CancellationToken)">
             <summary>
             Method to retrieve leaderboard ids defined for current project
             </summary>
             <param name="ignoreTimestamp">An optional parameter that indicates whether to ignore the timestamp in the leaderboard
             retrieval process. The default is false.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsLeaderboardAvailableAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsLeaderboardAvailableAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Method to retrieve available status of leaderboard
             </summary>
             <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInPromoPeriodAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInPromoPeriodAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Method to retrieve available status of leaderboard
             </summary>
             <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInGracePeriodAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.IsInGracePeriodAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Method to retrieve available status of leaderboard
             </summary>
             <param name="leaderboardId">The ID of the leaderboard which status will be checked.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns></returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScoreAsync(System.String,System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.SetScoreAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously sets the player's score on the specified leaderboard.
             </summary>
             <param name="leaderboardId">The ID of the leaderboard where the score will be set.</param>
             <param name="score">The score to be set on the leaderboard.</param>
             <param name="extraData">(Optional) Extra data associated with the score. Defaults to an empty string if not provided.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains the player's place after setting the score.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.AddScoreAsync(System.String,System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.AddScoreAsync(System.String,System.Int32,System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously adds the player's score on the specified leaderboard.
             </summary>
             <param name="leaderboardId">The ID of the leaderboard where the score will be added.</param>
             <param name="score">The score to be added on the leaderboard.</param>
             <param name="extraData">(Optional) Extra data associated with the score. Defaults to an empty string if not provided.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains the player's place after setting the score.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetUserEntryAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetUserEntryAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves the player's entry on the specified leaderboard.
             </summary>
             <param name="leaderboardId">The ID of the leaderboard from which the entry will be retrieved.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains the player's entry data on the leaderboard.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetEntriesAsync(System.String,System.Int32,System.Boolean,System.Int32)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetEntriesAsync(System.String,System.Int32,System.Boolean,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a specified number of top entries and entries around the user from the specified leaderboard.
             </summary>
@@ -170,9 +204,10 @@
             <param name="quantityTop">The number of top entries to retrieve from the leaderboard.</param>
             <param name="includeUser">Whether to include the user's entry in the retrieved entries.</param>
             <param name="quantityAroundUser">The number of entries to retrieve around the user's entry.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetsAsync(System.String,System.Boolean,System.Int64,System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetsAsync(System.String,System.Boolean,System.Int64,System.Int32,System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves leaderboard resets. Every time the leaderboard resets the results are stored in the history.
             This method allows to retreive the history of the leaderboard resets.
@@ -182,9 +217,10 @@
             <param name="startAfter">The start time in milliseconds since midnight, January 1, 1970 UTC, based on 'resetAt'.</param>
             <param name="limit">The maximum number of resets to retrieve.</param>
             <param name="orderDirection">The order direction for the resets. Accepted values 'asc' or 'desc'.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard resets.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetAsync(System.String,System.String,System.Int64,System.Int32,System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetAsync(System.String,System.String,System.Int64,System.Int32,System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves leaderboard reset by leaderboard and reset IDs. The result includes the user entries.
             </summary>
@@ -193,14 +229,16 @@
             <param name="startAfter">The start after based on 'place'.</param>
             <param name="limit">The maximum number of user entries to retrieve.</param>
             <param name="orderDirection">The order direction for the user entries. Accepted values 'asc' or 'desc'.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains the retrieved leaderboard reset with user entries.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.ResetLeaderboardAsync(System.String)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.ResetLeaderboardAsync(System.String,System.Threading.CancellationToken)">
             <summary>
             Reset leaderboard. Gives the rewards to the users and resets the leaderboard.
             Requires project admin access.
             </summary>
             <param name="leaderboardId">The ID of the leaderboard to reset.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
         </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardData">
             <summary>
