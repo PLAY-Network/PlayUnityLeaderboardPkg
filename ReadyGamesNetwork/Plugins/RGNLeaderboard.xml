@@ -373,6 +373,7 @@
             The fees are deducted when the user sets or adds a score to the leaderboard for the first time.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "F:RGN.Modules.Leaderboard.LeaderboardData.participationRewards" -->
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.totalEntriesNumber">
             <summary>
             Number of entries in the leaderboard
