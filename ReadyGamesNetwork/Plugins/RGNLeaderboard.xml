@@ -207,7 +207,7 @@
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
         </member>
-        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetsAsync(System.String,System.Boolean,System.Int64,System.Int32,System.String,System.Threading.CancellationToken)">
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetResetsAsync(System.String,System.Boolean,System.Int64,System.Int32,System.String,System.String,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves leaderboard resets. Every time the leaderboard resets the results are stored in the history.
             This method allows to retreive the history of the leaderboard resets.
@@ -216,6 +216,7 @@
             <param name="withEntries">Flag to include user entries in the response.</param>
             <param name="startAfter">The start time in milliseconds since midnight, January 1, 1970 UTC, based on 'resetAt'.</param>
             <param name="limit">The maximum number of resets to retrieve.</param>
+            <param name="orderBy">The order by field for the resets. Accepted values 'resetAt' or 'rewardsGivenAt'.</param>
             <param name="orderDirection">The order direction for the resets. Accepted values 'asc' or 'desc'.</param>
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard resets.</returns>
