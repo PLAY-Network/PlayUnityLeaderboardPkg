@@ -476,6 +476,11 @@
             List of leaderboard entries with the rewards information.
             </summary>
         </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardReset.userEntry">
+            <summary>
+            The user entry in the leaderboard with the rewards information.
+            </summary>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardReset.ToString">
             <summary>
             Creates a string representation of the LeaderboardReset.
