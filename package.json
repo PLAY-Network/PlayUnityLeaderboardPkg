@@ -1,5 +1,5 @@
 ﻿{
-  "name": "io.play.unity.leaderboard",
+  "name": "network.theplay.unity.leaderboard",
   "displayName": "PLAY SDK. Leaderboard",
   "version": "0.16.0",
   "unity": "2020.3",
@@ -30,7 +30,7 @@
   ],
   "samples": [],
   "dependencies": {
-    "io.play.unity.core": "0.16.0",
-    "io.play.unity.userprofile": "0.16.0"
+    "network.theplay.unity.core": "0.16.0",
+    "network.theplay.unity.userprofile": "0.16.0"
   }
 }
