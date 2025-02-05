@@ -196,6 +196,15 @@
             <param name="cancellationToken">A token to cancel the operation.</param>
             <returns>A task that represents the asynchronous operation. The task result contains the player's entry data on the leaderboard.</returns>
         </member>
+        <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetUserEntriesAsync(System.String,System.String[],System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously retrieves the player's entries on the specified leaderboard.
+            </summary>
+            <param name="leaderboardId">The ID of the leaderboard from which the entries will be retrieved.</param>
+            <param name="userIds">The IDs of the users whose entries will be retrieved.</param>
+            <param name="cancellationToken">A token to cancel the operation.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains a list of the retrieved leaderboard entries.</returns>
+        </member>
         <member name="M:RGN.Modules.Leaderboard.LeaderboardModule.GetEntriesAsync(System.String,System.Int32,System.Boolean,System.Int32,System.Threading.CancellationToken)">
             <summary>
             Asynchronously retrieves a specified number of top entries and entries around the user from the specified leaderboard.
