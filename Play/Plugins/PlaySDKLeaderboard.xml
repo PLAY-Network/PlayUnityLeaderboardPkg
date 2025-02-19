@@ -384,6 +384,26 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "F:RGN.Modules.Leaderboard.LeaderboardData.participationRewards" -->
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.scoreMultipliers">
+            <summary>
+            Configuration for score multipliers applied to the leaderboard.
+            This field defines how scores are adjusted through various multipliers,
+            including the rounding method, individual multipliers, and optional grouping of multipliers.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.fakeEntries">
+            <summary>
+            Configuration for generating fake entries in the leaderboard.
+            Fake entries can be used to simulate or pre-populate leaderboard data,
+            especially during testing or for display purposes when actual data is not available.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardData.filterEntriesWithZeroScore">
+            <summary>
+            Determines whether leaderboard entries with a score of zero should be filtered out.
+            When set to true, entries with a score of zero are excluded from the leaderboard ranking.
+            </summary>
+        </member>
         <member name="F:RGN.Modules.Leaderboard.LeaderboardData.totalEntriesNumber">
             <summary>
             Number of entries in the leaderboard
@@ -458,6 +478,79 @@
             </summary>
             <returns>A string that represents the current LeaderboardEntry.</returns>
         </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardFakeEntries">
+            <summary>
+            Represents the configuration settings for generating fake leaderboard entries.
+            Fake entries can be used to simulate or pre-populate leaderboard data for testing or display purposes.
+            This configuration allows specifying whether fake entries should be automatically generated upon creation or reset,
+            provides a list of predefined entries, and defines rules for generating additional fake entries.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.populateOnCreate">
+            <summary>
+            Indicates whether fake entries should be automatically populated when the leaderboard is created.
+            If set to true, the system may use predefined entries or generated entries to fill the leaderboard initially.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.populateOnReset">
+            <summary>
+            Indicates whether fake entries should be automatically populated when the leaderboard is reset.
+            If set to true, new fake entries may be generated every time the leaderboard resets.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.predefinedEntries">
+            <summary>
+            A list of predefined fake entry scores.
+            This list allows specifying explicit score values that will appear as fake entries.
+            It is used when specific scores are desired instead of generating them algorithmically.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.generationRules">
+            <summary>
+            Defines the rules for generating additional fake entries when predefined entries are not used or are insufficient.
+            This includes the total number of entries to generate and the range of scores to assign to those entries.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules">
+            <summary>
+            Contains the rules for generating fake leaderboard entries.
+            It specifies how many entries to generate and the range of score values for the generated entries.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules.count">
+            <summary>
+            The total number of fake entries to generate.
+            This value determines the count of simulated leaderboard entries to create when auto-generation is enabled.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules.scoreRange">
+            <summary>
+            Defines the range of score values that can be assigned to the generated fake entries.
+            This ensures that the generated scores fall within a specific minimum and maximum, with a set interval between scores.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules.ScoreRange">
+            <summary>
+            Specifies the range settings for generating score values for fake entries.
+            It includes the minimum score, maximum score, and the step interval between consecutive possible scores.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules.ScoreRange.min">
+            <summary>
+            The minimum score value that can be assigned to a generated fake entry.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules.ScoreRange.max">
+            <summary>
+            The maximum score value that can be assigned to a generated fake entry.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardFakeEntries.GenerationRules.ScoreRange.step">
+            <summary>
+            The step interval between possible score values.
+            For example, if the step is 1, scores will increase in increments of 1.
+            </summary>
+        </member>
         <member name="T:RGN.Modules.Leaderboard.LeaderboardReset">
             <summary>
             A class that represents an reset history entry in the leaderboard.
@@ -527,6 +620,97 @@
             Creates a string representation of the LeaderboardReward.
             </summary>
             <returns>A string that represents the current LeaderboardReward.</returns>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers">
+            <summary>
+            Represents the configuration for score multipliers in a leaderboard.
+            This class defines how scores are adjusted using individual multipliers and optional grouping.
+            The configuration includes a rounding method to preprocess scores, a list of multiplier definitions,
+            and an optional grouping mechanism to aggregate multiple multipliers.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.rounding">
+            <summary>
+            Specifies the rounding method to apply to scores before calculating multipliers.
+            Allowed values:
+            - "floor": Rounds down to the nearest whole number.
+            - "ceil": Rounds up to the nearest whole number.
+            - "round": Rounds to the nearest whole number using standard rounding rules.
+            This field is required and influences the initial score processing.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.multipliers">
+            <summary>
+            A list of individual multiplier definitions.
+            Each entry in the list specifies a condition under which the multiplier applies,
+            the multiplier value used to adjust the score, and an optional group identifier.
+            These multipliers are evaluated individually and can be combined based on grouping.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.groups">
+            <summary>
+            An optional list of multiplier groups.
+            Groups are used to aggregate several multipliers using a defined aggregation method.
+            This allows for combining the effects of multiple multipliers into a single overall adjustment.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Multiplier">
+            <summary>
+            Represents an individual multiplier definition.
+            Each multiplier includes a condition that determines when it should be applied,
+            a numeric value that specifies the multiplier factor, and an optional group association.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Multiplier.condition">
+            <summary>
+            The condition that must be met for this multiplier to be applied.
+            The condition contains a set of requirements (defined by the 'Requirement' type in RGN.Model)
+            which determine the eligibility of a score for this multiplier.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Multiplier.multiplier">
+            <summary>
+            The multiplier factor to be applied to the score if the condition is satisfied.
+            For example, a value of 1.5 would increase the score by 50%.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Multiplier.group">
+            <summary>
+            An optional identifier linking this multiplier to a specific multiplier group.
+            Grouping multipliers allows for aggregated calculations where multiple multipliers
+            are combined according to group-specific rules.
+            </summary>
+        </member>
+        <member name="T:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Group">
+            <summary>
+            Represents a group of multipliers and defines how their values should be aggregated.
+            Grouping is useful when multiple multipliers should be combined in a specific way,
+            such as summing their effects, taking the maximum value, calculating an average,
+            or multiplying them together.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Group.id">
+            <summary>
+            A unique identifier for the multiplier group.
+            This ID is used to associate individual multipliers with the group to which they belong.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Group.aggregation">
+            <summary>
+            The aggregation method used to combine the multiplier values in this group.
+            Allowed aggregation methods include:
+            - "sum": Sum all multiplier values.
+            - "max": Use the highest multiplier value.
+            - "avg": Compute the average of all multiplier values.
+            - "mul": Multiply the multiplier values together.
+            </summary>
+        </member>
+        <member name="F:RGN.Modules.Leaderboard.LeaderboardScoreMultipliers.Group.cap">
+            <summary>
+            An optional cap that limits the overall effect of the aggregated multipliers.
+            If set, the combined multiplier value will not exceed this cap,
+            ensuring that the score adjustment remains within a specified limit.
+            </summary>
         </member>
         <member name="T:RGN.Modules.Leaderboard.IsInGracePeriodResponseData">
             <summary>
